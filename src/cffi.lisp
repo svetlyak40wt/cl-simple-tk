@@ -41,13 +41,21 @@
   "tcl-set-variable/tcl-get-variable namespace (TCL_GLOBAL_ONLY).")
 
 (define-foreign-library tcl
-  (:darwin (:framework "Tcl"))
+  (:darwin (:or ;; "libtcl8.6.dylib"
+                ;; "libtcl8.6.dylib"
+                ;; "libtcl8.6"
+                "/opt/homebrew/opt/tcl-tk@8/lib/libtcl8.6.dylib"))
+  ;; (:darwin (:framework "Tcl"))
   (:windows (:or "tcl86.dll" "tcl85.dll"))
   (:unix (:or "libtcl8.6.so" "libtcl8.5.so" "libtcl.so"))
   (t (:default "libtcl")))
 
 (define-foreign-library tk
-  (:darwin (:framework "Tk"))
+  (:darwin (:or ;; "libtk8.6.dylib"
+                ;; "libtk8.6.dylib"
+                ;; "libtk8.6"
+                "/opt/homebrew/opt/tcl-tk@8/lib/libtk8.6.dylib"))
+  ;; (:darwin (:framework "Tk"))
   (:windows (:or "tk86.dll" "tk85.dll"))
   (:unix (:or "libtk8.6.so" "libtk8.5.so" "libtk.so"))
   (t (:default "libtk")))
